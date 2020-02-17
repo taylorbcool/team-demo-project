@@ -30,7 +30,39 @@ const users = async (_, args, context) => {
   return user;
 };
 
+/**
+ * @param {{ where: import('../generated/prisma-client').PostWhereUniqueInput }} args
+ * @param {{ prisma: import('../generated/prisma-client').Prisma }} context
+ * @returns { Promise }
+ */
+const post = async (_, args, context) => {
+  console.log("Query.post.args: %j", args)
+
+  const post = await context.prisma.post(args.where);
+
+  console.log("Query.post: %j", post)
+  
+  return post;
+};
+
+/**
+ * @param {{ where: import('../generated/prisma-client').PostWhereInput }} args
+ * @param {{ prisma: import('../generated/prisma-client').Prisma }} context
+ * @returns { Promise }
+ */
+const posts = async (_, args, context) => {
+  console.log("Query.post.args: %j", args)
+
+  const post = await context.prisma.posts(args);
+
+  console.log("Query.post: %j", post)
+  
+  return post;
+};
+
 module.exports = {
   user,
-  users
+  users,
+  post,
+  posts
 };
