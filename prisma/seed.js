@@ -11,10 +11,7 @@ async function main() {
   // Generate a bunch of random users
   for (var i = 0; i < 100; i++) {
     await prisma.createUser({
-      email: faker.internet.email(),
-      password: faker.internet.password(),
-      underage: Math.random() >= 0.5,
-      role_id: getRandomInt(10000, 99999)
+
     });
   }
 }
