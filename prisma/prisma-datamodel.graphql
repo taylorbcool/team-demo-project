@@ -2,7 +2,7 @@ type User {
   id: ID! @id
   username: String!
   isAdmin: Boolean! @default(value: false)
-  posts: [Post]! @relation(name: "Post")
+  posts: [Post] @relation(name: "Post")
 }
 
 type Post {
